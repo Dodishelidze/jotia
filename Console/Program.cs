@@ -6,7 +6,14 @@ namespace Jotia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var commad = Console.ReadLine();
+
+            while (commad != "exit")
+            {
+                //logic
+
+                commad = Console.ReadLine();
+            }
         }
     }
 }
