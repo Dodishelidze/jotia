@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Jotia
 {
@@ -24,10 +25,15 @@ namespace Jotia
                        Console.WriteLine($"- {note.GetTitle()}");
                     }
                 }
-
+                if (commad == "clear")
+                {
+                    Console.Clear();
+                }  
                 commad = Console.ReadLine();
             }
         }
+
+        
     }
 
     internal class Note
