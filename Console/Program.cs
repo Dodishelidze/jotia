@@ -8,16 +8,16 @@ namespace Jotia
     {
         static void Main(string[] args)
         {
-            var commad = Console.ReadLine();
+            var command = Console.ReadLine();
             var notes = new List<Note> {
                 new Note("today's tasks"),
                 new Note("coding ideas"),
             };
 
-            while (commad != "exit")
+            while (command != "exit")
             {
                 //logic
-                if (commad == "list")
+                if (command == "list")
                 {
                     // display all notes
                     foreach (var note in notes)
@@ -25,11 +25,22 @@ namespace Jotia
                        Console.WriteLine($"- {note.GetTitle()}");
                     }
                 }
-                if (commad == "clear")
+                if (command == "clear")
                 {
                     Console.Clear();
                 }  
-                commad = Console.ReadLine();
+                if (command.StartsWith("search"))
+                {
+                    string[] words = command.Split(" ");
+                    string word = words[1];
+                    var S = notes.Where(n => n.GetTitle().Contains(word)).ToArray();
+                    for (int i = 0; i < S.Length; i++)
+                    {
+                        Note n = (S[i]);
+                        Console.WriteLine(n.GetTitle());
+                    }
+                }
+                command = Console.ReadLine();
             }
         }
 
